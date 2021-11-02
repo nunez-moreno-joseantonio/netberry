@@ -1,6 +1,8 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\TareaController;
+use App\Http\Controllers\CategoriaController;
 
 /*
 |--------------------------------------------------------------------------
@@ -16,3 +18,15 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', function () {
     return view('ppal');
 });
+
+
+Route::group(['prefix' => 'tareas'], function() {
+    Route::get('list', [TareaController::class, 'getAll']);
+    Route::post('create', [TareaController::class, 'create']);
+    Route::post('delete', [TareaController::class, 'delete']);
+});
+
+Route::group(['prefix' => 'categorias'], function() {
+    Route::get('list', [CategoriaController::class, 'getAll']);
+});
+
