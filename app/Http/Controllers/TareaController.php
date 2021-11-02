@@ -23,14 +23,7 @@ class TareaController extends Controller
                 $t['id'] = $tarea->tarea_id;
                 $t['nombre'] = $tarea->nombre;
                 $t['categorias'] = $this->getCategorias($tarea->tarea_id);
-                /*foreach ($tarea->Categorias() as $categoria) 
-                {
-                    if($t['categorias'])
-                    {
-                        $t['categorias'] .= '|';
-                    }
-                    $t['categorias'] .= $categoria;
-                }*/
+                
                 $response[] = $t; 
             }
         }catch(\Exception $e){
@@ -56,8 +49,7 @@ class TareaController extends Controller
                 DB::table('categoria_tarea')->insert([
                     ['categoria_id' => $categoria, 'tarea_id' => $tarea->tarea_id]
                 ]);
-                //$tarea->categorias()->attach($categoria);
-                //$tarea->save();
+            
             }
 
             return response(json_encode(['mensaje'=> "Tarea creada correctamente."]),200)->header('Content-type','text/plain');
