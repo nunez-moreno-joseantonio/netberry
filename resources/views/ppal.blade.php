@@ -3,12 +3,10 @@
 @section('title', 'Netberry | Gestor Tareas')
     
 @section('content')
-    <h1>Gestor de Tareas</h1>
+    <h2 class="mt-5 border-bottom text-secondary">Gestor de Tareas</h2>
     <div class="m-2">
         <form id="form" action="GuardarCurso()">
             @csrf
-            
-            
         </form>
         <table class="table table-bordered" id="tabla2">
             <thead class="thead-dark">
@@ -26,11 +24,9 @@
 @section('scripts')
 <script>
     $(document).ready(function(){
-        
-        
+         
         PintarTabla();
         PintarFormulario();
-        
     });
 
     function PintarTabla()
@@ -164,8 +160,6 @@
             alert(error);
         }else
         {
-            $.ajax
-            LimpiarFormulario();
             $.ajax({
                 url: "{{url('/tareas/create')}}",
                 method: 'POST',
@@ -192,9 +186,11 @@
 
     function BorrarTarea(id) 
     {
-        var token = $('input[name="_token"]').val();
-        $.ajax
-            LimpiarFormulario();
+        var resultado = window.confirm('¿Estas seguro de que deseas borrar la tarea?');
+        if (resultado === true) {
+        
+            var token = $('input[name="_token"]').val();
+        
             $.ajax({
                 url: "{{url('/tareas/delete')}}",
                 method: 'POST',
@@ -214,6 +210,7 @@
                     PintarTabla();
                 }
             });
+        }
     }
 </script>
     
