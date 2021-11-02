@@ -20,8 +20,8 @@
             }
         </style>
     </head>
-    <body >
-        <div class="container m-5">
+    <body class="container" >
+        <div class="container mt-2">
             <div class="text-right"><img src="./img/logotipo-netberry.png" alt="Logo tipo Netberry" width="200 px"/></div>
             @yield('content')
         </div>
