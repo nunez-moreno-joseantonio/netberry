@@ -44,10 +44,6 @@ php artisan db:seed
 
 Abrimos nuestro navegador y nos vamos a la carpeta de nuestro proyecto, y dentro de esta a nuestra carpeta **public** y mostrará la página de inicio
 
-## Deployment
-
-Add additional notes about how to deploy this on a live system
-
 ## Utilizado como documentación
 
 * [Laravel](https://laravel.com/docs/8.x) - Web de documentacion del framework utilizado
